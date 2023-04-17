@@ -28,4 +28,14 @@ psql nomeBanco -c "CREATE EXTENSION postgis"
 <li> NOMEdoBANCO - Nome do baco de dados criado
 <lI> SRID - Número do sistema de coordanada usado
 <h2>Instalando Plugins do QGIS</h2>
-
+<p>Para instalar o Plugin siga as intruções abaixo de acordo com o sistema operacional rodando o QGIS.</p>
+<h4>Windows</h4>
+<p></p>
+<h4>Lunux</h4>
+<p></p>
+<h4>OSX</h4>
+<p></p>
+<h2>Baixando os aplicativos</h2>
+<p>Os aplicativos SoloTabOSM e SedcorTabOSM estão disponíveis na Google Play Store.</p>
+<h2>Mairoes informações</h2>
+<p>Informações mais detalhadas do sistema podem ser enconradas na pasta manual.</p>
