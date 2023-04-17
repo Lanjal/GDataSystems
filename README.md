@@ -33,10 +33,10 @@ psql nomeBanco -c "CREATE EXTENSION postgis"
 <p>Carregue as pastas do plugin em:</p>
 <li> C:\users\nomedousuario\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins
 <h4>Linux</h4>
-<p>Carregue as oastas do plugin em:</p>
+<p>Carregue as pastas do plugin em:</p>
 <li>/home/nomedousuario/.local/share/QGIS/QGIS3/profiles/default/python/plugins
 <h4>OSX</h4>
-<p>Carregue as pasta do plugin em:</p>
+<p>Carregue as pastas do plugin em:</p>
 <li>/Users/nomedousuario/Library/Application Support/QGIS/QGIS3/profiles/default/python/plugins
 <h2>Baixando os aplicativos</h2>
 <p>Os aplicativos SoloTabOSM e SedcorTabOSM estão disponíveis na Google Play Store.</p>
