@@ -41,5 +41,7 @@ psql nomeBanco -c "CREATE EXTENSION postgis"
 <h2>Baixando os aplicativos</h2>
 <p>Os aplicativos SoloTabOSM e SedcorTabOSM estão disponíveis na Google Play Store.</p>
 <h3><a href="https://play.google.com/store/apps/details?id=br.com.amazeone.soiltabosm">SoloTabOSM</a></h3><h3><a href="https://play.google.com/store/apps/details?id=br.com.amazeone.sedcortabosm">SedcorTabOSM</a></h3>
+<h2>Dashboard Shiny</h2>
+<p> Na pasta shiny temos o arquivo app.r que é um exemplo de como interagir com os dados do banco de dados usando um WEB App </p>
 <h2>Maiores informações</h2>
 <p>Informações mais detalhadas do sistema podem ser encontradas na pasta manual.</p>
