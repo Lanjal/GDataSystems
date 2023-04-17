@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/plugins/uploadsedcor" >
+        <file>icon.png</file>
+    </qresource>
+</RCC>
