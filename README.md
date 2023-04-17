@@ -25,7 +25,7 @@ psql nomeBanco -c "CREATE EXTENSION postgis"
 <li> SERVIDOR - IP ou nome de domínio do servidor com o banco de dados
 <li> USUÁRIO - nome do usuário 
 <li> SENHA - senha definida para o usuário
-<li> NOMEdoBANCO - Nome do baco de dados criado
+<li> BANCOdeDADOS - Nome do banco de dados criado
 <lI> SRID - Número do sistema de coordanada usado
 <h2>Instalando Plugins do QGIS</h2>
 <p>Para instalar o Plugin siga as intruções abaixo de acordo com o sistema operacional rodando o QGIS.</p>
