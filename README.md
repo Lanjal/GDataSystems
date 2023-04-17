@@ -8,4 +8,5 @@
 <li> Mapeamento Geológico
 <li> Acompanhamento de Sondagem
 <li> Descrição de Sondagem
-
+<p>O sistema utiliza plugins personalizados do QGIS, aplicativos Android e interface web de onde podemos adquirir dados e acessar as ferramentas principais de visualização e exportação dos dados de exploração</p>
+<img  src="img/ogdb1.png" width=500>
