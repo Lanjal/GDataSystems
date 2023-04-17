@@ -13,7 +13,7 @@
 <img  src="img/ogdb1.png" width=500>
 <p>Alternativamente o sistema pode funcionar com arquivos ao invés de Banco de dados.</p>
 <h1>Instalação</h1>
-<h2>Banco de Dados Postgis</h2>
+<h2>Criando o Banco de Dados Postgis</h2>
 <p>Caso decida usar o banco de dados (<b>recomendado</b>), em um servidor com postgres e postgis cria o seguinte banco de dados usando:</p>
 <pre>
 createdb nomeBanco --encoding=utf-8
@@ -25,7 +25,7 @@ psql nomeBanco -c "CREATE EXTENSION postgis"
 <li> SERVIDOR - IP ou nome de domínio do servidor com o banco de dados
 <li> USUÁRIO - nome do usuário 
 <li> SENHA - senha definida para o usuário
-<li> NOMEBANCO - Nome do baco de dados criado
-<lI> SRID - Nímero do sistema de coordanada usado
+<li> NOMEdoBANCO - Nome do baco de dados criado
+<lI> SRID - Número do sistema de coordanada usado
 <h2>Instalando Plugins do QGIS</h2>
 
