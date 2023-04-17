@@ -37,5 +37,6 @@ psql nomeBanco -c "CREATE EXTENSION postgis"
 <p></p>
 <h2>Baixando os aplicativos</h2>
 <p>Os aplicativos SoloTabOSM e SedcorTabOSM estão disponíveis na Google Play Store.</p>
+<h3><a href="https://play.google.com/store/apps/details?id=br.com.amazeone.soiltabosm">SoloTabOSM</a></h3><h3><a href="https://play.google.com/store/apps/details?id=br.com.amazeone.solotabosm">SedcorTabOSM</a></h3>
 <h2>Mairoes informações</h2>
 <p>Informações mais detalhadas do sistema podem ser enconradas na pasta manual.</p>
