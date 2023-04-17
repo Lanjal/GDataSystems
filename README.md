@@ -20,5 +20,12 @@ createdb nomeBanco --encoding=utf-8
 psql nomeBanco -c "CREATE EXTENSION postgis"
 </pre>
 <p>Onde noBanco é o nome do banco de dados escolhido.</p>
-<p>Altere no arquivo os valores de usuariosolo e usuariosed e senhaSecreta de acordo com os usuário que usarão o sistema e em seguida Execute <b>psql -d nomeBanco -f criaTabelas.sql</b>. Não altere os nomes das tablelas e nem dos campos. </p>
+<p>Altere no arquivo os valores de usuariosolo e usuariosed e também senhaSecreta de acordo com os usuário que usarão o sistema e em seguida e execute: <pre> <b>psql -d nomeBanco -f criaTabelas.sql</b></pre><p> Não altere os nomes das tablelas e nem dos campos nesse arquivo, somente usuários e senhas. </p>
+<p> Os campos de acesso a serem usados pelos plugins QGIS e Aplicativos android serão:</p>
+<li> SERVIDOR - IP ou nome de domínio do servidor com o banco de dados
+<li> USUÁRIO - nome do usuário 
+<li> SENHA - senha definida para o usuário
+<li> NOMEBANCO - Nome do baco de dados criado
+<lI> SRID - Nímero do sistema de coordanada usado
+<h2>Instalando Plugins do QGIS</h2>
 
