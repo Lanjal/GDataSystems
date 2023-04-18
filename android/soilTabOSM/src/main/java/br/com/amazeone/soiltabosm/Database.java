@@ -1,4 +1,7 @@
 package br.com.amazeone.soiltabosm;
+ //   This program is free software; you can redistribute it and/or modify  *
+ //   it under the terms of the is licensed under the BSD 3-Clause "New" or
+ //   "Revised" License.
 import java.sql.Connection;
 import java.sql.DriverManager;
 
