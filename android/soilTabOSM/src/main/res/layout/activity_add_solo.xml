@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:context=".AddSolo">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvamostra"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/id"
+            android:textColor="#aa2299"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/textAmostra"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:inputType="number"
+            android:text=""
+            android:background="#ff6688"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/tvamostra"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvam"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/amostra"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/textAmostra"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/textPonto"
+            android:layout_width="190dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:inputType="text"
+            android:text=""
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/tvam"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvprojeto"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/projeto"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/textPonto"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/textProjeto"
+            android:layout_width="190dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:inputType="text"
+            android:text=""
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/tvprojeto"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvalvo"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/alvo"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/textProjeto"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/textAlvo"
+            android:layout_width="190dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:inputType="text"
+            android:text=""
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/tvalvo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvduplicata"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/duplicata"
+            android:textColor="#aa2222"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvamostra" />
+
+        <EditText
+            android:id="@+id/textDuplicata"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:inputType="text"
+            android:background="#ffcccc"
+            android:text=""
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/tvduplicata"
+            app:layout_constraintTop_toBottomOf="@+id/textAmostra" />
+
+        <TextView
+            android:id="@+id/tvbranco"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/branco"
+            android:textColor="#aa2222"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/textDuplicata"
+            app:layout_constraintTop_toBottomOf="@+id/tvamostra" />
+
+        <EditText
+            android:id="@+id/textBranco"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:inputType="text"
+            android:background="#ffcccc"
+            android:text=""
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/tvbranco"
+            app:layout_constraintTop_toBottomOf="@+id/textAmostra" />
+
+        <TextView
+            android:id="@+id/tvpadrao"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/padrao"
+            android:textColor="#aa2222"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/textBranco"
+            app:layout_constraintTop_toBottomOf="@+id/tvamostra" />
+
+        <EditText
+            android:id="@+id/textPadrao"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:inputType="text"
+            android:background="#ffcccc"
+            android:text=""
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/tvpadrao"
+            app:layout_constraintTop_toBottomOf="@+id/textProjeto" />
+
+        <TextView
+            android:id="@+id/tvreamostra"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/reamostra"
+            android:textColor="#aa2222"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/textPadrao"
+            app:layout_constraintTop_toBottomOf="@+id/tvalvo" />
+
+        <EditText
+            android:id="@+id/textReamostra"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:inputType="text"
+            android:background="#ffcccc"
+            android:text=""
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/tvreamostra"
+            app:layout_constraintTop_toBottomOf="@+id/textAlvo" />
+
+        <TextView
+            android:id="@+id/tvtipo"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/tipo"
+            android:textColor="#aa2222"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvduplicata" />
+
+        <Spinner
+            android:id="@+id/rgTipo1"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#ffeecc"
+            android:entries="@array/tipo1"
+            app:layout_constraintLeft_toRightOf="@+id/tvtipo"
+            app:layout_constraintTop_toBottomOf="@+id/tvduplicata" />
+
+        <TextView
+            android:id="@+id/tvlatitude"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/latitude"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/rgTipo1"
+            app:layout_constraintTop_toBottomOf="@+id/tvbranco" />
+
+        <EditText
+            android:id="@+id/textLatitude"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:inputType="numberSigned|numberDecimal"
+            android:text=""
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/tvlatitude"
+            app:layout_constraintTop_toBottomOf="@+id/textBranco" />
+
+        <TextView
+            android:id="@+id/tvlongitude"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/longitude"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/textLatitude"
+            app:layout_constraintTop_toBottomOf="@+id/tvpadrao" />
+
+        <EditText
+            android:id="@+id/textLongitude"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:inputType="numberSigned|numberDecimal"
+            android:text=""
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/tvlongitude"
+            app:layout_constraintTop_toBottomOf="@+id/textPadrao" />
+
+        <TextView
+            android:id="@+id/tvelev"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/elev"
+            android:textColor="#aa2222"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/textLongitude"
+            app:layout_constraintTop_toBottomOf="@+id/tvpadrao" />
+
+        <EditText
+            android:id="@+id/textElev"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:inputType="numberSigned|numberDecimal"
+            android:text=""
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/tvelev"
+            app:layout_constraintTop_toBottomOf="@+id/textReamostra" />
+
+        <TextView
+            android:id="@+id/tvdatum"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/datum"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvtipo" />
+
+        <EditText
+            android:id="@+id/textDatum"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:inputType="text"
+            android:text=""
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/tvdatum"
+            app:layout_constraintTop_toBottomOf="@+id/rgTipo1" />
+
+        <TextView
+            android:id="@+id/tvzona"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/zona"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/textDatum"
+            app:layout_constraintTop_toBottomOf="@+id/tvlatitude" />
+
+        <EditText
+            android:id="@+id/textZona"
+            android:layout_width="190dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:inputType="number"
+            android:text=""
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/tvzona"
+            app:layout_constraintTop_toBottomOf="@+id/textLatitude" />
+
+        <TextView
+            android:id="@+id/tvns"
+            android:layout_width="145dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/ns"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@id/textZona"
+            app:layout_constraintTop_toBottomOf="@+id/textLongitude" />
+
+        <Spinner
+            android:id="@+id/rgNs"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:entries="@array/ns1"
+            app:layout_constraintLeft_toRightOf="@+id/tvns"
+            app:layout_constraintTop_toBottomOf="@+id/tvlongitude" />
+
+        <TextView
+            android:id="@+id/tvtipoperfil"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/tipoperfil"
+            android:textColor="#aa2222"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@id/rgNs"
+            app:layout_constraintTop_toBottomOf="@+id/textLongitude" />
+
+        <Spinner
+            android:id="@+id/rgTipoperfil"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#ffeecc"
+            android:entries="@array/tipoperfil1"
+            app:layout_constraintLeft_toRightOf="@+id/tvtipoperfil"
+            app:layout_constraintTop_toBottomOf="@+id/tvelev" />
+
+        <TextView
+            android:id="@+id/tvprofm"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/profm"
+            android:textColor="#aa2299"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvdatum" />
+
+        <EditText
+            android:id="@+id/textProfm"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:inputType="numberDecimal"
+            android:background="#ff6688"
+            android:text=""
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/tvprofm"
+            app:layout_constraintTop_toBottomOf="@+id/textDatum" />
+
+        <TextView
+            android:id="@+id/tvcor"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/cor"
+            android:textColor="#aa2222"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/textProfm"
+            app:layout_constraintTop_toBottomOf="@+id/tvzona" />
+
+        <Spinner
+            android:id="@+id/rgTextCor"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:entries="@array/cor"
+            android:background="#ffeecc"
+            app:layout_constraintLeft_toRightOf="@+id/tvcor"
+            app:layout_constraintTop_toBottomOf="@+id/textZona" />
+
+        <TextView
+            android:id="@+id/tvtipoamostra"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/tipoamostra"
+            android:textColor="#aa2222"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@id/rgTextCor"
+            app:layout_constraintTop_toBottomOf="@+id/rgNs" />
+
+        <Spinner
+            android:id="@+id/rgTipoamostra"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#ffeecc"
+            android:entries="@array/tipoamostra1"
+            app:layout_constraintLeft_toRightOf="@+id/tvtipoamostra"
+            app:layout_constraintTop_toBottomOf="@+id/tvns" />
+
+        <TextView
+            android:id="@+id/tvgranul"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/granul"
+            android:textColor="#aa2222"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@id/rgTipoamostra"
+            app:layout_constraintTop_toBottomOf="@+id/rgTipoperfil" />
+
+        <Spinner
+            android:id="@+id/rgGranul"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#ffeecc"
+            android:entries="@array/granul1"
+            app:layout_constraintLeft_toRightOf="@+id/tvgranul"
+            app:layout_constraintTop_toBottomOf="@+id/tvtipoperfil" />
+
+        <TextView
+            android:id="@+id/tvrelevo"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/relevo"
+            android:textColor="#aa2222"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvprofm" />
+
+        <Spinner
+            android:id="@+id/rgRelevo"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#ffeecc"
+            android:entries="@array/relevo1"
+            app:layout_constraintLeft_toRightOf="@+id/tvrelevo"
+            app:layout_constraintTop_toBottomOf="@+id/textProfm" />
+
+        <TextView
+            android:id="@+id/tvfrag"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/frag"
+            android:textColor="#aa2222"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@id/rgRelevo"
+            app:layout_constraintTop_toBottomOf="@+id/textProfm" />
+
+        <Spinner
+            android:id="@+id/rgFrag"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#ffeecc"
+            android:entries="@array/frag1"
+            app:layout_constraintLeft_toRightOf="@+id/tvfrag"
+            app:layout_constraintTop_toBottomOf="@+id/tvcor" />
+
+        <TextView
+            android:id="@+id/tvmag"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/mag"
+            android:textColor="#aa2222"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@id/rgFrag"
+            app:layout_constraintTop_toBottomOf="@+id/rgTextCor" />
+
+        <Spinner
+            android:id="@+id/rgMag"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#ffeecc"
+            android:entries="@array/mag1"
+            app:layout_constraintLeft_toRightOf="@+id/tvmag"
+            app:layout_constraintTop_toBottomOf="@+id/tvtipoamostra" />
+
+        <TextView
+            android:id="@+id/tvveg"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/veg"
+            android:textColor="#aa2222"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/rgMag"
+            app:layout_constraintTop_toBottomOf="@+id/tvtipoamostra" />
+
+        <Spinner
+            android:id="@+id/rgTextVeg"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#ffeecc"
+            android:entries="@array/veg"
+            app:layout_constraintLeft_toRightOf="@+id/tvveg"
+            app:layout_constraintTop_toBottomOf="@+id/rgTipoamostra" />
+
+        <TextView
+            android:id="@+id/tvpeso"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/peso"
+            android:textColor="#aa2222"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvrelevo" />
+
+        <EditText
+            android:id="@+id/textPeso"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:inputType="numberDecimal"
+            android:text=""
+            android:background="#ffcccc"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/tvpeso"
+            app:layout_constraintTop_toBottomOf="@+id/rgRelevo" />
+        <TextView
+            android:id="@+id/tvresp"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="#aa2222"
+            android:text="@string/resp"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/textPeso"
+            app:layout_constraintTop_toBottomOf="@+id/tvmag" />
+
+        <EditText
+            android:id="@+id/textResp"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:inputType="text"
+            android:text=""
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/tvresp"
+            app:layout_constraintTop_toBottomOf="@+id/tvmag" />
+        <TextView
+            android:id="@+id/tvcoletado"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="08dp"
+            android:text="@string/coletado"
+            android:textColor="#aa2222"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toRightOf="@+id/textResp"
+            app:layout_constraintTop_toBottomOf="@+id/tvmag" />
+        <Spinner
+            android:id="@+id/rgColetado"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#ffeecc"
+            android:entries="@array/coletado1"
+            app:layout_constraintLeft_toRightOf="@+id/tvcoletado"
+            app:layout_constraintTop_toBottomOf="@+id/tvveg" />
+
+
+
+        <TextView
+            android:id="@+id/tvobs"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/obs"
+            android:textColor="#aa2222"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvpeso" />
+        <EditText
+            android:id="@+id/textObs"
+            android:layout_width="1100dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:inputType="text"
+            android:text=""
+            android:background="#ffcccc"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvobs" />
+        <Button
+            android:id="@+id/insereButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:text="@string/insere"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textObs" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</HorizontalScrollView>
