@@ -1,4 +1,4 @@
- library(shiny)
+library(shiny)
 library(rgdal)
 library(leaflet)
 library(leaflet.extras)
@@ -22,7 +22,7 @@ t = setTimeout(logout, 120000);
 }
 }
 idleTimer();"
- #substituir usuario e senhadeusuario pelas credenciais de um usuário válido do banco de dados
+ #substituir usuario e senhadesteusuario pelas credenciais de um usuário válido do banco de dados
 credentials <- data.frame(
   user = c("usuario"),
   password = c("senhadesteusuario"),
@@ -59,19 +59,6 @@ background  = "linear-gradient(rgba(255, 127, 80, 0.1),
 			DT::dataTableOutput("psoloc"),
 			tags$h3("Tabela Pontos Amostra de Solo a Coletar"),
 			DT::dataTableOutput("psoloac")
-		)
-	),
-    tabPanel("Tabelas Sedimento Corrente",
-		sidebarPanel(
-			tags$h5("Tabela Pontos Amostra de Sedimento de Corrente")
-		,width=2),
-		mainPanel(
-			tags$h3("Tabela Pontos Amostra de Sedimento de Corrente"),
-			DT::dataTableOutput("psed"),
-			tags$h3("Tabela Pontos Amostra de Sedimento de Corrente Coletadas"),
-			DT::dataTableOutput("psedc"),
-			tags$h3("Tabela Pontos Amostra de Sedimento de Corrente a Coletar"),
-			DT::dataTableOutput("psedac")
 		)
 	)		
  )
