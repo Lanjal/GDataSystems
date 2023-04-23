@@ -91,7 +91,7 @@ CREATE TABLE tradoheader (
  who     varchar(50)  not null
 );
 
-CREATE TABLE tradoamostra (
+CREATE TABLE tradointervalo (
  id          serial,   
  furo        varchar(100) NOT NULL UNIQUE,
  amostra     varchar(100) UNIQUE,
