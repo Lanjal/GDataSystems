@@ -5,6 +5,7 @@
 <li> Amostragem de Solo
 <li> Amostragem de Sedimento de Corrente
 <p> Em breve será incluído:</p>
+<li> Sondagem a Trado
 <li> Mapeamento Geológico e coleta de amostras de rocha
 <li> Resultados geoquímicos
 <li> Acompanhamento de Sondagem
