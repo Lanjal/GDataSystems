@@ -87,6 +87,7 @@ CREATE TABLE tradoheader (
  fim     date,               
  proftot text,  
  status  integer NOT NULL DEFAULT 0,
+ obs     text,
  tstp    timestamp not null DEFAULT now(),
  who     varchar(50)  not null
 );
