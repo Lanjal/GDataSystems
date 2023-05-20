@@ -104,6 +104,7 @@ CREATE TABLE tradointervalo (
  de        	 numeric(7,2),  
  ate         numeric(7,2),        
  descr       text,
+ peso        numeric(7,3),
  resp 	      varchar(50),                     
  tstp        timestamp not null DEFAULT now(),
  who         varchar(50)  not null
