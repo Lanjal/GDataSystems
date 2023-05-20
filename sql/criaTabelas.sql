@@ -85,7 +85,7 @@ CREATE TABLE tradoheader (
  resp    varchar(50), 
  inicio  date,  
  fim     date,               
- proftot text,  
+ proftot numeric(6,3),  
  status  integer NOT NULL DEFAULT 0,
  obs     text,
  tstp    timestamp not null DEFAULT now(),
