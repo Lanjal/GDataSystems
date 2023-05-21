@@ -1,13 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
--------------------------------------------------------------------------------
-   Copyright (C) 2023 GDataSystems <andre.costa@grupoge21.com>
 
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the is licensed under the BSD 3-Clause "New" or
- *   "Revised" License.
--------------------------------------------------------------------------------
-"""
 from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication, QVariant
 from qgis.PyQt.QtGui import QIcon
 from qgis.gui import QgsFieldComboBox, QgsMapLayerComboBox
