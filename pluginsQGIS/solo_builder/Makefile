@@ -1,21 +1,3 @@
-#/***************************************************************************
-# SoloBuilder
-#
-# Criar pontos de amostragem de Solo
-#							 -------------------
-#		begin				: 2023-02-24
-#		git sha				: $Format:%H$
-#		copyright			: (C) 2023 by Andre.Costa
-#		email				: andre.costa@grupoge21.com
-# ***************************************************************************/
-#
-#/***************************************************************************
-# *																		 *
-# *   This program is free software; you can redistribute it and/or modify  *
-# *   it under the terms of the is licensed under the BSD 3-Clause "New" or
-# *   "Revised" License.							   *
-# *																		 *
-# ***************************************************************************/
 
 #################################################
 # Edit the following to match your sources lists
