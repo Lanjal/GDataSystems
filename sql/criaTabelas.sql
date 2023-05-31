@@ -122,7 +122,7 @@ GRANT SELECT,INSERT,UPDATE,DELETE ON sedcor TO usuariosed;
 GRANT SELECT,UPDATE ON sedcor_id_seq TO usuariosed;
 
 CREATE USER usuariotrado WITH PASSWORD 'senhaSecreta';
-GRANT SELECT,INSERT,UPDATE,DELETE ON tradoheader TO usuariotrad;
+GRANT SELECT,INSERT,UPDATE,DELETE ON tradoheader TO usuariotrado;
 GRANT SELECT,UPDATE ON tradoheader_id_seq TO usuariotrado;
-GRANT SELECT,INSERT,UPDATE,DELETE ON tradoamostra TO usuariotrad;
+GRANT SELECT,INSERT,UPDATE,DELETE ON tradoamostra TO usuariotrado;
 GRANT SELECT,UPDATE ON tradoamostra_id_seq TO usuariotrado;
