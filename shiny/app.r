@@ -7,178 +7,154 @@ library(leaflet)
 library(leaflet.extras)
 library(rpostgis)
 library(DT)
-library(shinymanager)
-#---------------Credenciais----------------------------------------------------------------------
-inactivity <- "function idleTimer() {
-var t = setTimeout(logout, 240000);
-window.onmousemove = resetTimer; 
-window.onmousedown = resetTimer; 
-window.onclick = resetTimer;     
-window.onscroll = resetTimer;    
-window.onkeypress = resetTimer;  
-function logout() {
-window.close();  //close the window
-}
-function resetTimer() {
-clearTimeout(t);
-t = setTimeout(logout, 120000); 
-}
-}
-idleTimer();"
- #substituir usuario e senhadesteusuario pelas credenciais de um usuário válido do banco de dados
-credentials <- data.frame(
-  user = c("usuario"),
-  password = c("senhadesteusuario"),
-  stringsAsFactors = FALSE
-)
+
 #-----------------------------------------------------------------------------------------------------
-#--------------------------------------------UI---------------------------------------------------
+#--------------------------------------------UI-------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------
-ui <- secure_app(head_auth = tags$script(inactivity), 
-language = "pt-BR",
-background  = "linear-gradient(rgba(255, 127, 80, 0.1), 
-                  rgba(255, 127, 80, 0.1)),
-                  url('https://amazeone.com.br/img/icon.png')  no-repeat top fixed;",
- navbarPage("Solo - GDataSystems webApp",id = "tabs",
-  tabPanel("Mapa",
+ui <- navbarPage("GDataSystems (BETA 0.1)",
+  tabPanel("Map",
 		sidebarLayout(
 			sidebarPanel(
-				tags$h4("Mapa do Projeto"),
+				img(src = 'https://amazeone.com.br/img/oGDSicon.png', height = '50px', width = '50px'),
+				tags$h4("Project Map")
 			,width=2),
 			mainPanel(
+				tags$h3("A GOOD PROJECT"),
 				leafletOutput(outputId = "map", height=800)
 			)
 		)
  ),
- navbarMenu("Dados",
-   	tabPanel("Tabelas Solo",
+ navbarMenu("Soil",
+   	tabPanel("Soil Tables",
 		sidebarPanel(
-			tags$h5("Tabela Pontos Amostra de Solo")
+			img(src = 'https://amazeone.com.br/img/oGDSicon.png', height = '50px', width = '50px'),
+			tags$h5("Soil Tables")
 		,width=2),
 		mainPanel(
-			tags$h3("Tabela Pontos Amostra de Solo"),
-			DT::dataTableOutput("psolo"),
-			tags$h3("Tabela Pontos Amostra de Solo Coletadas"),
-			DT::dataTableOutput("psoloc"),
-			tags$h3("Tabela Pontos Amostra de Solo a Coletar"),
-			DT::dataTableOutput("psoloac")
+			tags$h3("Soil Data"),
+			DT::dataTableOutput("psolo")
 		)
-	)		
+	)	
+ ),
+ navbarMenu("Stream Sediment",
+   	tabPanel("Stream Sediment Tables",
+		sidebarPanel(
+			img(src = 'http://amazeone.com.br/img/oGDSicon.png', height = '50px', width = '50px'),
+			tags$h5("Stream Sediment Tables")
+		,width=2),
+		mainPanel(
+			tags$h3("Stream Sediment Data"),
+			DT::dataTableOutput("repo3")
+		)
+	)
  )
 )
-)
+
 #-----------------------------------------------------------------------------------------------------
 #--------------------------------------------SERVER---------------------------------------------------
 #-----------------------------------------------------------------------------------------------------
 server <- function(input, output, session) {
-result_auth <- secure_server(check_credentials = check_credentials(credentials))
-output$res_auth <- renderPrint({
-    reactiveValuesToList(result_auth)
+con<-dbConnect(PostgreSQL(),host='127.0.0.1',user='gdatasystems', password='secret', dbname='gds' ,port='5432')
+cstr4<-paste("PG:dbname=gds host=127.0.0.1 user=gdatasystems password=secret port=5432")
+  aoi <- reactive({
+	  aoi <- readOGR(cstr4, layer="aoi")
   })
-con<-dbConnect(dbDriver("PostgreSQL"),host='127.0.0.1',user=credentials$user[1], password=credentials$password[1], dbname='geodbsolo' ,port='5432')
-cstr4<-paste("PG:dbname=geodbsolo host=127.0.0.1 user=",credentials$user[1]," password=",credentials$password[1]," port=5432")
-  dm <- reactive({
-	  co <- readOGR(cstr4, layer="dm")
+  gridpoints <- reactive({
+	  co <- spTransform(readOGR(cstr4, layer="gridpoints"),CRS("+init=epsg:4326"))
+  })
+  stream <- reactive({
+	  stream <- readOGR(cstr4, layer="stream")
   })
   sol <- reactive({ 
-	  outp<-dbGetQuery(con,"select st_x(st_transform(geom,4326)) as long, st_Y(st_transform(geom,4326)) as lat, amostra,ponto  from soil")
+	  outp<-dbGetQuery(con,"select st_x(st_transform(geom,4326)) as long, st_Y(st_transform(geom,4326)) as lat,point,sample,depthm,target,weight,_date as date,type0,colour,sampletype,granul,morpho,fragments,magnetism,vegetation,who  from soil")
 	  data.frame(outp)
   })
-  solcol <- reactive({
-       outp<-dbGetQuery(con,"select ponto,amostra,resp,_data as data,st_x(st_transform(geom,4326)) as long, st_Y(st_transform(geom,4326)) as lat from soil where amostra IS NOT NULL and coletado=true")
-	   data.frame(outp)
-  })
-  soalacol <- reactive({
-	  outp<-dbGetQuery(con,"select st_x(st_transform(geom,4326)) as long, st_Y(st_transform(geom,4326)) as lat, amostra,ponto from soil where amostra IS NULL")
+  strm <- reactive({ 
+	  outp<-dbGetQuery(con,"select st_x(st_transform(geom,4326)) as long, st_Y(st_transform(geom,4326)) as lat,point,sample,target,_date as date,type0,descr,concentrad,fragments,matrix,comp_frag,compactatn,environ,who  from strmsed ")
 	  data.frame(outp)
   })
-  psolo <- dbGetQuery(con,"SELECT id as \"ID\",projeto as \"Projeto\",alvo as \"Alvo\",ponto as \"Ponto\",amostra as \"Amostra\",coletado as \"Coletado\",utme as \"UTM E\",utmn as \"UTM N\",elev as \"Elevação\",
-				duplicata as \"Duplicata\",branco as \"Branco\",padrao as \"Padrão\",reamostra as \"Reamostra\",tipo as \"Tipo\",tipoperfil as \"Tipo Perfil\",datum as \"Datum\",_zone as \"Zona\",
-				ns as \"Hemisfério\",profm as \"Profundidade\",cor as \"Cor\",tipoamostr as \"Tipo Amostra\",granul as \"Granulometria\",
-				relevo as \"Relevo\",fragmentos as \"Fragmentos\",magnetismo as \"Magnetismo\",vegetacao as \"Vegetação\",peso as \"Peso\",obs as \"Observações\",_data as \"Data\",resp as \"Responsável\" FROM soil ORDER BY amostra")
-  psoloc <- dbGetQuery(con,"SELECT id as \"ID\",projeto as \"Projeto\",alvo as \"Alvo\",ponto as \"Ponto\",amostra as \"Amostra\",coletado as \"Coletado\",utme as \"UTM E\",utmn as \"UTM N\",elev as \"Elevação\",
-				duplicata as \"Duplicata\",branco as \"Branco\",padrao as \"Padrão\",reamostra as \"Reamostra\",tipo as \"Tipo\",tipoperfil as \"Tipo Perfil\",datum as \"Datum\",_zone as \"Zona\",
-				ns as \"Hemisfério\",profm as \"Profundidade\",cor as \"Cor\",tipoamostr as \"Tipo Amostra\",granul as \"Granulometria\",
-				relevo as \"Relevo\",fragmentos as \"Fragmentos\",magnetismo as \"Magnetismo\",vegetacao as \"Vegetação\",peso as \"Peso\",obs as \"Observações\",_data as \"Data\",resp as \"Responsável\" FROM soil WHERE coletado='true' ORDER BY amostra")
-  psoloac <- dbGetQuery(con,"SELECT id as \"ID\",projeto as \"Projeto\",alvo as \"Alvo\",ponto as \"Ponto\",amostra as \"Amostra\",coletado as \"Coletado\",utme as \"UTM E\",utmn as \"UTM N\",elev as \"Elevação\",
-				duplicata as \"Duplicata\",branco as \"Branco\",padrao as \"Padrão\",reamostra as \"Reamostra\",tipo as \"Tipo\",tipoperfil as \"Tipo Perfil\",datum as \"Datum\",_zone as \"Zona\",
-				ns as \"Hemisfério\",profm as \"Profundidade\",cor as \"Cor\",tipoamostr as \"Tipo Amostra\",granul as \"Granulometria\",
-				relevo as \"Relevo\",fragmentos as \"Fragmentos\",magnetismo as \"Magnetismo\",vegetacao as \"Vegetação\",peso as \"Peso\",obs as \"Observações\",_data as \"Data\",resp as \"Responsável\" FROM  soil WHERE coletado='false' ORDER BY amostra")
- 
+   psol <- dbGetQuery(con,"SELECT project as \"Project\",target as \"Target\",point as \"Point\",sample as \"Sample\",duplicate as \"Duplicate\",blank as \"Blank\",standard as \"Standard\",resample as \"Resample\",type0 as \"Type\",utme as \"UTM-E\",utmn as \"UTM-N\",elev as \"Elevation\",datum  as \"Datum\",_zone as \"Zone\",ns as \"Hemisphere\",prfltype as \"Profile Type\",depthm as \"Depth(m)\",colour as \"Colour\",sampletype as \"Sample Type\",granul as \"Granulometry\",morpho as \"Morphology\",Fragments as \"Fragments\",magnetism as \"Magnetism\",vegetation as \"Vegetation\",weight as \"Weight\",_date as \"Date\",obs as \"Observation\",sampled as \"Sampled\"  from soil")
+   psed <- dbGetQuery(con,"SELECT project as \"Project\",target as \"Target\",point as \"Point\",sample as \"Sample\",duplicate as \"Duplicate\",blank as \"Blank\",standard as \"Standard\",resample as \"Resample\",type0 as \"Type\",utme as \"UTM-E\",utmn as \"UTM-N\",elev as \"Elevation\",datum  as \"Datum\",_zone as \"Zone\",ns as \"Hemisphere\",descr as \"Description\",concentrad as \"Concentrated\",fragments as \"Fragments\",matrix as \"Matrix\",ns as \"Hemisphere\",comp_frag as \"Frag. Composition\",compactatn as \"Compactation\",ns as \"Hemisphere\",environ as \"Environment\",_date as \"Date\",obs as \"Observation\",sampled as \"Sampled\" from strmsed")  
   #_________________________________________________________________________________________________
   output$map <- renderLeaflet({
-    mapa<-leaflet() 
-      mapa<-addTiles(mapa,group="Cartografia")  
-      mapa<-addProviderTiles(mapa,"Esri.WorldImagery", group = "Satelite") 
-      mapa<-addPolygons(map<-mapa,data = dm(),group="Direitos Minerários",label=~dsprocesso,
-					fillColor = "orange", weight=0.5,color = "grey",
+    mapa<-leaflet(width = "100%",height = "100%") 
+      mapa<-addTiles(mapa,group="Map") 
+      mapa<-addProviderTiles(mapa,"Esri.WorldImagery", group = "Satellite Image",options = providerTileOptions(minZoom = 8, maxZoom = 17)) 
+      mapa<-addPolygons(map<-mapa,data = aoi(),group="Area of Interest",fillColor = "orange", weight=0.5,color = "grey")
+	  mapa<-addCircleMarkers(map<-mapa,data = gridpoints(),group="Soil Location",color="red",radius=0)
+	  mapa<-addCircleMarkers(map<-mapa,data = stream(),group="Stream Sed Location",color="pink",radius=0)
+	  mapa<-addCircleMarkers(map<-mapa,data = sol(), lng = ~long, lat = ~lat,label=~point, group="Soil Collected",color="purple",radius=4,
 					popup = paste0(
-                   "<b>",dm()$dsprocesso,":</b>"
-                   , "<br>"
-                   , "Nome: <b>", dm()$nome, "</b><br>"
-                   , "Substância: <b>",dm()$subs,"</b><br>"
-				   , "Fase: <b>",dm()$fase,"</b><br>"
-				   , "Área (ha): <b>",dm()$area_ha,"</b><br>"
-				   , "Último Evento: <b>",dm()$ult_evento,"</b><br>"
+                   "<table border='1' width='250px' cellpadding='5px'><tr><th bgcolor='lightgrey' colspan='2'>SOIL SAMPLE: ",sol()$sample,"</th></tr>"
+                   , "<tr><td bgcolor='LightBlue'>Point: </td><td bgcolor='Ivory'>", sol()$point, "</td></tr>"
+                   , "<tr><td bgcolor='LightBlue'>Target: </td><td bgcolor='Ivory'>",sol()$target,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Depth (m): </td><td bgcolor='Ivory'>",sol()$depthm,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Weight (kg): </td><td bgcolor='Ivory'>",sol()$weight,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Date: </td><td bgcolor='Ivory'>",sol()$date,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Type: </td><td bgcolor='Ivory'>",sol()$type0,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Colour: </td><td bgcolor='Ivory'>",sol()$colour,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Sample Type: </td><td bgcolor='Ivory'>",sol()$sampletype,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Granulometry: </td><td bgcolor='Ivory'>",sol()$granul,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Morphology: </td><td bgcolor='Ivory'>",sol()$morpho,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Fragments: </td><td bgcolor='Ivory'>",sol()$fragments,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Magnetism: </td><td bgcolor='Ivory'>",sol()$magnetism,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Vegetation: </td><td bgcolor='Ivory'>",sol()$vegetation,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Collected by: </td><td bgcolor='Ivory'>",sol()$who,"</td></tr></table>"
                ))
-	  mapa<-addCircleMarkers(map<-mapa,data = sol(), lng = ~long, lat = ~lat,label=~ponto, group="Solo",color="black",radius=2)
-	  if(nrow(solcol())>0){mapa<-addCircleMarkers(map<-mapa,data = solcol(), lng = ~long, lat = ~lat,label=~amostra, group="Solo Coletado",color="purple",radius=2,popup = paste0(
-                   "<b>",solcol()$ponto,":</b>"
-                   , "<br>"
-                   , "Amostra: <b>", solcol()$amostra, "</b><br>"
-                   , "Data: <b>",solcol()$data,"</b><br>"
-				   , "Coletado por: <b>",solcol()$resp,"</b><br>"
-               ))}
-	  if(nrow(soalacol())>0){mapa<-addCircleMarkers(map<-mapa,data = soalacol(), lng = ~long, lat = ~lat,label=~ponto, group="Solo a Coletar",color="navy",radius=2)}
-      if(nrow(solcol())==0 && nrow(soalacol())>0){mapa<-addLayersControl(map<-mapa,baseGroups = c("Cartografia","Satelite"),overlayGroups = c("Direitos Minerários","Solo","Solo a Coletar"),options = layersControlOptions(collapsed = TRUE))}
-      else if(nrow(solcol())>0 && nrow(soalacol())==0){mapa<-addLayersControl(map<-mapa,baseGroups = c("Cartografia","Satelite"),overlayGroups = c("Direitos Minerários","Solo","Solo Coletado"),options = layersControlOptions(collapsed = TRUE))}
-	  else if(nrow(solcol())>0 && nrow(soalacol())>0){mapa<-addLayersControl(map<-mapa,baseGroups = c("Cartografia","Satelite"),overlayGroups = c("Direitos Minerários","Solo","Solo Coletado","Solo a Coletar"),options = layersControlOptions(collapsed = TRUE))}
-	  else{mapa<-addLayersControl(map<-mapa,baseGroups = c("Cartografia","Satelite"),overlayGroups = c("Direitos Minerários","Solo"),options = layersControlOptions(collapsed = TRUE))}
-	  mapa<-hideGroup(map<-mapa,c("Solo","Solo Coletado", "Solo a Coletar"))
+	  mapa<-addCircleMarkers(map<-mapa,data = strm(), lng = ~long, lat = ~lat,label=~point, group="Stream Sed Collected",color="blue",radius=4,
+					popup = paste0(
+                   "<table border='1' width='250px' cellpadding='5px'><tr><th bgcolor='lightgrey' colspan='2'>STREAM SEDIMENT SAMPLE: ",strm()$sample,"</th></tr>"
+                   , "<tr><td bgcolor='LightBlue'>Point: </td><td bgcolor='Ivory'>", strm()$point, "</td></tr>"
+                   , "<tr><td bgcolor='LightBlue'>Target: </td><td bgcolor='Ivory'>",strm()$target,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Date: </td><td bgcolor='Ivory'>",strm()$date,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Type: </td><td bgcolor='Ivory'>",strm()$type0,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Description: </td><td bgcolor='Ivory'>",strm()$descr,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Concentrate: </td><td bgcolor='Ivory'>",strm()$concentrad,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Fragments: </td><td bgcolor='Ivory'>",strm()$fragments,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Matrix: </td><td bgcolor='Ivory'>",strm()$matrix,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Frag. composition: </td><td bgcolor='Ivory'>",strm()$comp_frag,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Compactation: </td><td bgcolor='Ivory'>",strm()$compactatn,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Environment: </td><td bgcolor='Ivory'>",strm()$environ,"</td></tr>"
+				   , "<tr><td bgcolor='LightBlue'>Collected by: </td><td bgcolor='Ivory'>",strm()$who,"</td></tr></table>"
+               ))
+	  mapa<-addLayersControl(map<-mapa,baseGroups = c("Satellite Image","Map"),overlayGroups = c("Area of Interest","Soil Location","Stream Sed Location","Soil Collected","Stream Sed Collected"),options = layersControlOptions(collapsed = TRUE)) 
 	  mapa<-addScaleBar(map<-mapa,position='bottomleft',options = scaleBarOptions(imperial=F,maxWidth=250))
   })
-  output$psolo<-DT::renderDataTable(psolo,server = FALSE,
+  output$psolo<-DT::renderDataTable(psol,server = FALSE,
     rownames = FALSE, 
     extensions = 'Buttons',
     options = exprToFunction(
       list(dom = 'lBfrtip',
            buttons = list( 
-             list(extend = 'print',title="Tabela Pontos Amostra de Solo"),
-             list(extend = 'excel',title="Tabela Pontos Amostra de Solo",filename=paste("Tabela","Solo",sep = "-")),
-			 list(extend = 'pdf',title="Tabela Pontos Amostra de Solo",orientation="landscape",pageSize="A2",filename=paste("Tabela","Solo",sep = "-"))
+             list(extend = 'print',title="Soil Executed Table"),
+			 list(extend = 'csv',filename=paste("Soil","Executed",sep = "_")),
+             list(extend = 'excel',title="Soil Executed Table",filename=paste("Soil","Executed",date(),sep = "_")),
+			 list(extend = 'pdf',title="Soil Executed Table",orientation="landscape",pageSize="A2",filename=paste("Soil","Executed",date(),sep = "_"))
 		   )
 	  )
     )
   )
-  output$psoloc<-DT::renderDataTable(psoloc,server = FALSE,
-    rownames = FALSE, 
+ 
+output$repo3<-DT::renderDataTable(psed,server = FALSE,
+    rownames = FALSE,
     extensions = 'Buttons',
     options = exprToFunction(
-      list(dom = 'lBfrtip',
+      list(dom = 'lBfrtip',pageLength = 15,
+			 lengthMenu = c(15, 50, 100,500),
            buttons = list( 
-             list(extend = 'print',title="Tabela Pontos Amostra de Solo"),
-             list(extend = 'excel',title="Tabela Pontos Amostra de Solo",filename=paste("Tabela","Solo",sep = "-")),
-			 list(extend = 'pdf',title="Tabela Pontos Amostra de Solo",orientation="landscape",pageSize="A2",filename=paste("Tabela","Solo",sep = "-"))
+             list(extend = 'print',title="Executed Stream Sed Table"),
+			 list(extend = 'csv',filename=paste("StreamSed","Executed",sep = "_")),
+             list(extend = 'excel',title="Executed Stream Sed Table",filename=paste("StreamSed","Executed",sep = "-")),
+			 list(extend = 'pdf',title="Executed Stream Sed Table",orientation="landscape",pageSize="A2",filename=paste("StreamSed","Executed",sep = "-"))
 		   )
 	  )
-    )
+	)
   )
- output$psoloac<-DT::renderDataTable(psoloac,server = FALSE,
-    rownames = FALSE, 
-    extensions = 'Buttons',
-    options = exprToFunction(
-      list(dom = 'lBfrtip',
-           buttons = list( 
-             list(extend = 'print',title="Tabela Pontos Amostra de Solo"),
-             list(extend = 'excel',title="Tabela Pontos Amostra de Solo",filename=paste("Tabela","Solo",sep = "-")),
-			 list(extend = 'pdf',title="Tabela Pontos Amostra de Solo",orientation="landscape",pageSize="A2",filename=paste("Tabela","Solo",sep = "-"))
-		   )
-	  )
-    )
-  )  
-  #_______________________________________________________________________________________
+
+
+
+#_______________________________________________________________________________________
 }
 #-----------------------------------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------------------------
 shinyApp(ui, server)
-
