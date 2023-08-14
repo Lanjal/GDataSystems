@@ -22,23 +22,14 @@ psql gds -c "CREATE EXTENSION postgis"</pre>
 <p>The <b>setup.sql</b> can to create your database can be found in the sql folder.</p>
 
 <p><b>gds</b>, <b>secret</b> and <b>gdatasystems</b> are respectively examples of the database name, password and user that are needed for system connection used by apps, QGiS and web interfaces. The Postgis database server IP address or domain name (Host) is necessary as well to make the connections. Adjust your system accordingly</p>
-<h2>Configuring the plugins</h2>
+<h2>Installing the plugins</h2>
 <p>These plugins can be used to create sampling points associated with the Apps base maps. Here we are going to show two of them. One creates regularly spaced points inside polygons e the other creates sampling points at drainage intersections (stream sediments)</p>
 <p>These two plugins are located under the pluginsQGIS folder . Copy them inside the folder (using windows OS):</p>
 <pre>C:\Users\<b>username</b>\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\</pre>
+<p>Detailled instructions can be found in the file <b>GDataSYstems_plugins.pdf</b> under the manual folder</p>
 
-<pre>
-createdb nomeBanco --encoding=utf-8
-psql nomeBanco -c "CREATE EXTENSION postgis"
-</pre>
-  <p>Onde <b>nomeBanco</b> é o nome do banco de dados escolhido.</p>
-<p>Altere no arquivo os valores de usuariosolo e usuariosed e também senhaSecreta de acordo com os usuário que usarão o sistema e em seguida execute: <pre> <b>psql -d nomeBanco -f criaTabelas.sql</b></pre><p> Não altere os nomes das tabelas e nem dos campos nesse arquivo, somente usuários e senhas. </p>
-<p> Os campos de acesso a serem usados pelos plugins QGIS e Aplicativos android serão:</p>
-<li> SERVIDOR - IP ou nome de domínio do servidor com o banco de dados
-<li> USUÁRIO - nome do usuário 
-<li> SENHA - senha definida para o usuário
-<li> BANCOdeDADOS - Nome do banco de dados criado
-<lI> SRID - Número do sistema de coordanada usado
+
+
 <h2>Instalando Plugins do QGIS</h2>
 <p>Para instalar o Plugin siga as intruções abaixo de acordo com o sistema operacional rodando o QGIS.</p>
 <h4>Windows</h4>
