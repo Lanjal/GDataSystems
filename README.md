@@ -26,7 +26,7 @@ psql gds -c "CREATE EXTENSION postgis"</pre>
 <p>These plugins can be used to create sampling points associated with the Apps base maps. Here we are going to show two of them. One creates regularly spaced points inside polygons e the other creates sampling points at drainage intersections (stream sediments)</p>
 <p>These two plugins are located under the pluginsQGIS folder . Copy them inside the folder (using windows OS):</p>
 <pre>C:\Users\<b>username</b>\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\</pre>
-<p>Detailled instructions can be found in the file <b>GDataSYstems_plugins.pdf</b> under the manual folder</p>
+<p>Detailled instructions can be found in the file <b>GDataSystems_plugins.pdf</b> under the manual folder</p>
 
 
 
