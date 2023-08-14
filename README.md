@@ -18,7 +18,8 @@
 <p>On your server create a database using the commands below.</p>
 <pre>createdb gds --encoding=utf-8
 psql gds -c "CREATE EXTENSION postgis"</pre>
-
+<p>The next step is to create the set of tables on your database (example: gds).</p>
+<p>The <b>setup.sql</b> can to create your database can be found in the sql folder.</p>
 
 
 
