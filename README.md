@@ -24,23 +24,19 @@ psql gds -c "CREATE EXTENSION postgis"</pre>
 <p><b>gds</b>, <b>secret</b> and <b>gdatasystems</b> are respectively examples of the database name, password and user that are needed for system connection used by apps, QGiS and web interfaces. The Postgis database server IP address or domain name (Host) is necessary as well to make the connections. Adjust your system accordingly</p>
 <h2>Installing the plugins</h2>
 <p>These plugins can be used to create sampling points associated with the Apps base maps. Here we are going to show two of them. One creates regularly spaced points inside polygons e the other creates sampling points at drainage intersections (stream sediments)</p>
-<p>These two plugins are located under the pluginsQGIS folder . Copy them inside the folder (using windows OS):</p>
+<p>These two plugins are located under the pluginsQGIS folder . Copy them inside the folder</p> 
+<h4>Using windows OS</h4>
 <pre>C:\Users\<b>username</b>\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\</pre>
+<h4>Using Linux OS</h4>
+<pre>/home/<b>username</b>/.local/share/QGIS/QGIS3/profiles/default/python/plugins</pre>
+<h4>Using OSX OS</h4>
+<pre>/Users/<b>username</b>/Library/Application Support/QGIS/QGIS3/profiles/default/python/plugins</pre>
+
 <p>Detailled instructions can be found in the file <b>GDataSystems_plugins.pdf</b> under the manual folder</p>
 
 
 
-<h2>Instalando Plugins do QGIS</h2>
-<p>Para instalar o Plugin siga as intruções abaixo de acordo com o sistema operacional rodando o QGIS.</p>
-<h4>Windows</h4>
-<p>Carregue as pastas do plugin em:</p>
-<li> C:\users\nomedousuario\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins
-<h4>Linux</h4>
-<p>Carregue as pastas do plugin em:</p>
-<li>/home/nomedousuario/.local/share/QGIS/QGIS3/profiles/default/python/plugins
-<h4>OSX</h4>
-<p>Carregue as pastas do plugin em:</p>
-<li>/Users/nomedousuario/Library/Application Support/QGIS/QGIS3/profiles/default/python/plugins
+
 <h2>Baixando os aplicativos</h2>
 <p>Os aplicativos SoloTabOSM e SedcorTabOSM estão disponíveis na Google Play Store.</p>
 <h3><a href="https://play.google.com/store/apps/details?id=br.com.amazeone.soiltabosm">SoloTabOSM</a></h3><h3><a href="https://play.google.com/store/apps/details?id=br.com.amazeone.sedcortabosm">SedcorTabOSM</a></h3>
