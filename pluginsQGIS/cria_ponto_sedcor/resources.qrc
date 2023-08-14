@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/plugins/cria_ponto_sedcor" >
-        <file>icon.png</file>
-    </qresource>
-</RCC>
