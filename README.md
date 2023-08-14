@@ -34,14 +34,14 @@ psql gds -c "CREATE EXTENSION postgis"</pre>
 
 <p>Detailled instructions can be found in the file <b>GDataSystems_plugins.pdf</b> under the manual folder</p>
 
+<h2>Installing the Android Apps</h2>
+<p>The apps GDS-Soil, GDS-StreamSed and GDS-Auger are available on  Google Play Store.</p>
+<h3><a href="https://play.google.com/store/apps/details?id=com.gdatasystems.gds_soil">GDS-Soil</a></h3>
+<h3><a href="https://play.google.com/store/apps/details?id=com.gdatasystems.gds_streamsed">GDS-StreamSed</a></h3>
+<h3><a href="https://play.google.com/store/apps/details?id=com.gdatasystems.gds_auger">GDS-Auger</a></h3>
 
-
-
-<h2>Baixando os aplicativos</h2>
-<p>Os aplicativos SoloTabOSM e SedcorTabOSM estão disponíveis na Google Play Store.</p>
-<h3><a href="https://play.google.com/store/apps/details?id=br.com.amazeone.soiltabosm">SoloTabOSM</a></h3><h3><a href="https://play.google.com/store/apps/details?id=br.com.amazeone.sedcortabosm">SedcorTabOSM</a></h3>
-
-<h2>Dashboard Shiny</h2>
+<h2>Shiny Dashboard Example</h2>
 <p> Na pasta shiny temos o arquivo app.R que é um exemplo de como interagir com os dados do banco de dados usando um WEB App </p>
+
 <h2>Maiores informações</h2>
 <p>Informações mais detalhadas do sistema podem ser encontradas na pasta manual.</p>
