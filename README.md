@@ -41,7 +41,7 @@ psql gds -c "CREATE EXTENSION postgis"</pre>
 <h3><a href="https://play.google.com/store/apps/details?id=com.gdatasystems.gds_auger">GDS-Auger</a></h3>
 
 <h2>Shiny Dashboard Example</h2>
-<p> Na pasta shiny temos o arquivo app.R que é um exemplo de como interagir com os dados do banco de dados usando um WEB App </p>
+<p> An example of a shiny dashboard can be found under the shiny folder. </p>
 
-<h2>Maiores informações</h2>
-<p>Informações mais detalhadas do sistema podem ser encontradas na pasta manual.</p>
+<h2>More info</h2>
+<p>More information about the GeoDataSystems can be found in the folder manual.</p>
