@@ -21,15 +21,12 @@ psql gds -c "CREATE EXTENSION postgis"</pre>
 <p>The next step is to create the set of tables on your database (example: gds).</p>
 <p>The <b>setup.sql</b> can to create your database can be found in the sql folder.</p>
 
+<p><b>gds</b>, <b>secret</b> and <b>gdatasystems</b> are respectively examples of the database name, password and user that are needed for system connection used by apps, QGiS and web interfaces. The Postgis database server IP address or domain name (Host) is necessary as well to make the connections. Adjust your system accordingly</p>
+<h2>Configuring the plugins</h2>
+<p>These plugins can be used to create sampling points associated with the Apps base maps. Here we are going to show two of them. One creates regularly spaced points inside polygons e the other creates sampling points at drainage intersections (stream sediments)</p>
+<p>These two plugins are located under the pluginsQGIS folder . Copy them inside the folder (using windows OS):</p>
+<pre>C:\Users\<b>username</b>\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\</pre>
 
-
-
-
-
-<p>Alternativamente o sistema pode funcionar com arquivos ao invés de Banco de dados.</p>
-<h1>Instalação</h1>
-<h2>Criando o Banco de Dados Postgis</h2>
-<p>Caso decida usar o banco de dados (<b>recomendado</b>), em um servidor com postgres e postgis cria o seguinte banco de dados usando:</p>
 <pre>
 createdb nomeBanco --encoding=utf-8
 psql nomeBanco -c "CREATE EXTENSION postgis"
