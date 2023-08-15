@@ -22,17 +22,7 @@ psql gds -c "CREATE EXTENSION postgis"</pre>
 <p>The <b>setup.sql</b> can to create your database can be found in the sql folder.</p>
 
 <p><b>gds</b>, <b>secret</b> and <b>gdatasystems</b> are respectively examples of the database name, password and user that are needed for system connection used by apps, QGiS and web interfaces. The Postgis database server IP address or domain name (Host) is necessary as well to make the connections. Adjust your system accordingly</p>
-<h2>Installing the plugins</h2>
-<p>The plugins can be used to create sampling points associated with the Apps base maps. Here we are going to show two of them. One creates regularly spaced points inside polygons e the other creates sampling points at drainage intersections (stream sediments)</p>
-<p>These two plugins, created with <a href="https://g-sherman.github.io/Qgis-Plugin-Builder/">Plugin-Builder</a>, are located under the pluginsQGIS folder . Copy them inside the folder:</p> 
-<h4>Using windows OS</h4>
-<pre>C:\Users\<b>username</b>\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\</pre>
-<h4>Using Linux OS</h4>
-<pre>/home/<b>username</b>/.local/share/QGIS/QGIS3/profiles/default/python/plugins</pre>
-<h4>Using OSX OS</h4>
-<pre>/Users/<b>username</b>/Library/Application Support/QGIS/QGIS3/profiles/default/python/plugins</pre>
 
-<p>Detailled instructions can be found in the file <b>GDataSystems_plugins.pdf</b> under the manual folder</p>
 
 <h2>Installing the Android Apps</h2>
 <p>The apps GDS-Soil, GDS-StreamSed and GDS-Auger are available on  Google Play Store.</p>
