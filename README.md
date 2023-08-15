@@ -18,8 +18,6 @@
 <h3><a href="https://play.google.com/store/apps/details?id=com.gdatasystems.gds_streamsed">GDS-StreamSed</a></h3>
 <h3><a href="https://play.google.com/store/apps/details?id=com.gdatasystems.gds_auger">GDS-Auger</a></h3>
 
-<h2>Shiny Dashboard Example</h2>
-<p> An example of a shiny dashboard can be found under the shiny folder. </p>
 
 <h2>More info</h2>
-<p>More information about the GeoDataSystems can be found in the folder manual.</p>
+<p>More information about the GeoDataSystems check the wiki.</p>
