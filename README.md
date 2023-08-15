@@ -11,18 +11,6 @@
 <li> Geological mapping/sampling
 <li> RC Drilling
 <li> DDH Drilling / Core Logging
-<h2>Server Setup</h2>
-<p>A standard VPS server will be suitable to use GDataSystems if it has a PostgreSQL-Postgis database server, a web server, and a shiny server. The server will be accessed by its IP address or domain name and the connection parameters such as database name, username, and password.</p>
-<h2>Configuring the postgis database</h2>
-<p>The following instructions presents a standard database, and a customized version can be implemented accordingly with a Project needs. The entire system (apps, WEB, and shiny dashboard) will work integrated with the PostgreSQL-Postgis database.</p>
-<p>On your server create a database using the commands below.</p>
-<pre>createdb gds --encoding=utf-8
-psql gds -c "CREATE EXTENSION postgis"</pre>
-<p>The next step is to create the set of tables on your database (example: gds).</p>
-<p>The <b>setup.sql</b> can to create your database can be found in the sql folder.</p>
-
-<p><b>gds</b>, <b>secret</b> and <b>gdatasystems</b> are respectively examples of the database name, password and user that are needed for system connection used by apps, QGiS and web interfaces. The Postgis database server IP address or domain name (Host) is necessary as well to make the connections. Adjust your system accordingly</p>
-
 
 <h2>Installing the Android Apps</h2>
 <p>The apps GDS-Soil, GDS-StreamSed and GDS-Auger are available on  Google Play Store.</p>
