@@ -20,4 +20,4 @@
 
 
 <h2>More info</h2>
-<p>For more information about the GDataSystems check the wiki.</p>
+<p>For more information about the GDataSystems check the <a href="https://github.com/Lanjal/GDataSystems/wiki">GDataSystems WIKI</a>.</p>
