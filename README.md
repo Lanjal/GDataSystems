@@ -2,7 +2,7 @@
 <img src="/img/oGDSicon.png" width=92>
 <h2>Mineral exploration field data acquisition system</h2>
 <p> The data acquisition system GDataSystems involves a central Postgis database that stores all the exploration data. The database is fed using the apps (GDS-Soil, GDS-StreamSed, GDS-Auger) developed for Android 11 or superior. RC-DDH Drilling data and geological mapping/sampling in final tests.</p>
-<p></p>Each app uses OSM map tiles OSM (Open Street Map) with the programmed sampling points on it. Each collection point is converted into a marker that, when clicked, pops-up a menu particular to each app type. The menu will allow a particular form to be displayed and the data can be loaded internally into the tablet database (offline). The coordinates and elevation data are collected automatically with the tablet GPS and can be edited or adjusted if necessary. After returning from the field all the collected data can be uploaded to the main database located on a remote server using the available internet connection. The app also stores all the data internally using CSV file format as a backup. The system works exclusively using Latitude-Longitude on WGS-84 datum and all conversions is handled automatically by the app during the upload process adjusting them to the defined database datum (database SRID).</p>
+
 <p>The following tools are already realeased</p>
 <li> Soil Sampling
 <li> Stream Sediment sampling
