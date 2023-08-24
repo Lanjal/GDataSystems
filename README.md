@@ -7,7 +7,7 @@
 <li> Soil Sampling
 <li> Stream Sediment sampling
 <li> Auger drilling
-<li> Geological mapping/sampling
+<li> Geological mapping/Rock sampling
 <p> Future releases:</p>
 <li> RC Drilling
 <li> DDH Drilling / Core Logging
