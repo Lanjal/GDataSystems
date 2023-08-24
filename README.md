@@ -17,7 +17,7 @@
 <h3><a href="https://play.google.com/store/apps/details?id=com.gdatasystems.gds_soil">GDS-Soil</a></h3>
 <h3><a href="https://play.google.com/store/apps/details?id=com.gdatasystems.gds_streamsed">GDS-StreamSed</a></h3>
 <h3><a href="https://play.google.com/store/apps/details?id=com.gdatasystems.gds_auger">GDS-Auger</a></h3>
-<h3><a href="https://play.google.com/store/apps/details?id=com.gdatasystems.gds_geomap">GDS-GeoMapr</a></h3>
+<h3><a href="https://play.google.com/store/apps/details?id=com.gdatasystems.gds_geomap">GDS-GeoMap</a></h3>
 
 <h2>More info</h2>
 <p>Looking for more information about the GDataSystems? Check the <a href="https://github.com/Lanjal/GDataSystems/wiki">GDataSystems WIKI</a>.</p>
