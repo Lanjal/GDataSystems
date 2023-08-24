@@ -1137,20 +1137,7 @@ INSERT INTO lookup VALUES('mineral',821,'Zirconolite');
 INSERT INTO lookup VALUES('mineral',822,'Zircophyllite');
 INSERT INTO lookup VALUES('mineral',823,'Zirkelite');
 INSERT INTO lookup VALUES('mineral',824,'Zoisite');
-INSERT INTO lookup VALUES('mineral',825,'Zunyite');
-INSERT INTO lookup VALUES('rego',1,'Pedolith');
-INSERT INTO lookup VALUES('rego',2,'Upper Pedolith');
-INSERT INTO lookup VALUES('rego',3,'Upper-Medium Pedolith');
-INSERT INTO lookup VALUES('rego',4,'Medium Pedolith');
-INSERT INTO lookup VALUES('rego',5,'Medium-Lower Pedolith');
-INSERT INTO lookup VALUES('rego',6,'Lower Pedolith');
-INSERT INTO lookup VALUES('rego',7,'Lower Pedolith Upper Saprolith');
-INSERT INTO lookup VALUES('rego',8,'Upper Saprolith');
-INSERT INTO lookup VALUES('rego',9,'Upper Saprolith-Saprolith');
-INSERT INTO lookup VALUES('rego',10,'Saprolith');
-INSERT INTO lookup VALUES('rego',11,'Saprock');
-INSERT INTO lookup VALUES('rego',12,'Fresh Rock');
-INSERT INTO lookup VALUES('rego',13,'Organic Soil');       
+INSERT INTO lookup VALUES('mineral',825,'Zunyite');     
 
 GRANT SELECT ON lookup TO gdatasystems;    
 CREATE FUNCTION getloo1(fi character varying, _id integer) RETURNS text
