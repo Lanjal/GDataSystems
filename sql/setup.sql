@@ -16,9 +16,9 @@ CREATE TABLE soil (
  utmn         numeric(15,7) NOT NULL,
  elev         numeric(7,3) NOT NULL, 
  geom         geometry(POINTZ,32723), --Adjust to project SRID
- datum 	  varchar(50) NOT NULL DEFAULT 'WGS84',
- _zone 	  integer NOT NULL DEFAULT 23,--Adjust to Project UTM ZONE
- ns 		  varchar(2) NOT NULL DEFAULT 'S', --S  South e N  North
+ datum 	      varchar(50) NOT NULL DEFAULT 'WGS84',
+ _zone 	      integer NOT NULL DEFAULT 23,--Adjust to Project UTM ZONE
+ ns 	      varchar(2) NOT NULL DEFAULT 'S', --S  South e N  North
  prfltype     varchar(50),              
  depthm       numeric(7,2),          
  colour       varchar(50),
@@ -28,8 +28,8 @@ CREATE TABLE soil (
  fragments    varchar(50),
  magnetism    varchar(50),
  vegetation   text,
- weigth 	  numeric(6,2),
- resp 	  varchar(50), 
+ weigth       numeric(6,2),
+ resp 	      varchar(50), 
  _date        date,                 
  obs          text,  
  sampled      boolean,  
@@ -52,17 +52,17 @@ CREATE TABLE strmsed (
  utmn         numeric(15,7) NOT NULL,
  elev         numeric(7,3) NOT NULL, 
  geom         geometry(POINTZ,32723), --Adjust to project SRID
- datum 	  varchar(50) NOT NULL DEFAULT 'WGS84',
- _zone 	  integer NOT NULL DEFAULT 23,--Adjust to Project UTM ZONE
- ns 		  varchar(2) NOT NULL DEFAULT 'S', --S  South e N  North
- descr	  text, 
+ datum 	      varchar(50) NOT NULL DEFAULT 'WGS84',
+ _zone 	      integer NOT NULL DEFAULT 23,--Adjust to Project UTM ZONE
+ ns 	      varchar(2) NOT NULL DEFAULT 'S', --S  South e N  North
+ descr	      text, 
  concentrad   boolean, 
  fragments    text,
- matrix	  text,
+ matrix	      text,
  comp_frag    text,
  compactatn   text,
- environ	  text,
- resp 	  varchar(50), 
+ environ      text,
+ resp 	      varchar(50), 
  _date        date,                 
  obs          text,  
  colected     boolean,  
@@ -72,25 +72,25 @@ CREATE TABLE strmsed (
 
 CREATE TABLE augerheader (
  id         serial,   
- project  	varchar(50), 
+ project    varchar(50), 
  target     varchar(50), 
  drillhole  varchar(100) NOT NULL UNIQUE,
- utme    	numeric(15,7) NOT NULL,
- utmn    	numeric(15,7) NOT NULL,
- elev     	numeric(7,3) NOT NULL, 
+ utme       numeric(15,7) NOT NULL,
+ utmn       numeric(15,7) NOT NULL,
+ elev       numeric(7,3) NOT NULL, 
  geom       geometry(POINTZ,32723), --Adjust to project SRID
- datum 	varchar(50) NOT NULL DEFAULT 'WGS84',
- _zone 	integer NOT NULL DEFAULT 23,--Adjust to Project UTM ZONE
- ns 		varchar(2) NOT NULL DEFAULT 'S', --S  South e N  North
- resp     	varchar(50), 
- _start   	date,  
- _end      	date,               
- totdpth  	numeric(6,3),  
- status   	integer NOT NULL DEFAULT 0,
- stpat   	integer NOT NULL DEFAULT 0,
- obs      	text,
- tstp     	timestamp NOT NULL DEFAULT now(),
- who      	varchar(50)  NOT NULL
+ datum 	    varchar(50) NOT NULL DEFAULT 'WGS84',
+ _zone 	    integer NOT NULL DEFAULT 23,--Adjust to Project UTM ZONE
+ ns 	    varchar(2) NOT NULL DEFAULT 'S', --S  South e N  North
+ resp       varchar(50), 
+ _start     date,  
+ _end       date,               
+ totdpth    numeric(6,3),  
+ status     integer NOT NULL DEFAULT 0,
+ stpat      integer NOT NULL DEFAULT 0,
+ obs        text,
+ tstp       timestamp NOT NULL DEFAULT now(),
+ who        varchar(50)  NOT NULL
 );
 
 CREATE TABLE augerinterval (
@@ -103,9 +103,9 @@ CREATE TABLE augerinterval (
    waterat     numeric(7,2),   
    descr       text,
    weight      numeric(7,3),
-   diametre	   numeric(7,3),
+   diametre    numeric(7,3),
    lithocode   varchar(50),
-   resp 	   varchar(50),                     
+   resp        varchar(50),                     
    tstp        timestamp NOT NULL DEFAULT now(),
    who         varchar(50)  NOT NULL,
    UNIQUE(drillhole,sample,_from)
@@ -119,15 +119,15 @@ CREATE TABLE geopoint (
    utmn       numeric(15,7) NOT NULL,
    elev       numeric(7,3) NOT NULL, 
    geom       geometry(POINTZ,32723), --Adjust to project SRID
-   datum 	  varchar(50) NOT NULL DEFAULT 'WGS84',
-   _zone 	  integer NOT NULL DEFAULT 23,--Adjust to Project UTM ZONE
-   ns 	  varchar(2) NOT NULL DEFAULT 'S', --S  South e N  North
+   datum      varchar(50) NOT NULL DEFAULT 'WGS84',
+   _zone      integer NOT NULL DEFAULT 23,--Adjust to Project UTM ZONE
+   ns 	      varchar(2) NOT NULL DEFAULT 'S', --S  South e N  North
    outcrptype varchar(50),
-   morpho	  varchar(50),
+   morpho     varchar(50),
    lithology  varchar(200),
    descr      text,
    lithocode  varchar(15),
-   resp 	  varchar(50), 
+   resp       varchar(50), 
    _date      date,                  
    tstp       timestamp NOT NULL DEFAULT now(),
    who        varchar(50)  NOT NULL
@@ -145,10 +145,10 @@ CREATE TABLE rock (
    resample     varchar(100),
    sampletype2  varchar(100),
    outcrop      varchar(100),
-   litho 	    varchar(100),
-   descr 	    text,
+   litho 	varchar(100),
+   descr 	text,
    magnetism    varchar(100),
-   resp 	    varchar(50),              
+   resp 	varchar(50),              
    obs          text,  
    sampled      boolean,  
    tstp         timestamp NOT NULL DEFAULT now(),
@@ -158,9 +158,8 @@ CREATE TABLE rock (
 CREATE TABLE geoptadd (
    id           serial,   
    ptgeo        varchar(100) NOT NULL UNIQUE,
-   type3	    varchar(50),
---type 	Mineralization, alteration, structural
-   descr	    text,
+   type3	varchar(50),
+   descr	text,
    intensity    varchar(50),
    rank         integer,
    mineral1     varchar(200),
@@ -172,11 +171,10 @@ CREATE TABLE geoptadd (
    dipdir       numeric(6,2),
    type1        varchar(50),
    type2        varchar(50),
-   resp 	    varchar(50),                
+   resp 	varchar(50),                
    tstp         timestamp NOT NULL DEFAULT now(),
    who          varchar(50)  NOT NULL
 );
-
 
 CREATE USER gdatasystems WITH PASSWORD 'secret';
 GRANT SELECT,INSERT,UPDATE,DELETE ON soil TO gdatasystems;
@@ -196,10 +194,11 @@ GRANT SELECT,UPDATE ON geoptadd_id_seq TO gdatasystems;
 
 CREATE TABLE lookup (
 field 	varchar(100),
-code 	      integer, 
+code 	integer, 
 text1 	varchar(200),
 UNIQUE(field,code)
 ); 
+
 INSERT INTO lookup VALUES('type0',1,'ORIGINAL');        
 INSERT INTO lookup VALUES('type0',2,'QAQC');        
 INSERT INTO lookup VALUES('status',1,'LOCATION');        
@@ -1161,7 +1160,6 @@ code 	varchar(10) NOT NULL,
 text1 	varchar(200),
 UNIQUE(field,cat,code)
 ); 
-
 
 GRANT SELECT ON litho TO gdatasystems;
 CREATE FUNCTION getlitho(fi character varying, _id character varying) RETURNS text
