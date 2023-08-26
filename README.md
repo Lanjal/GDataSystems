@@ -1,4 +1,4 @@
-# GDataSystems - Version 0.1.0 (BETA)
+# GDataSystems - Version 1.1 
 <img src="/img/ico512.png" width=92>
 <h2>Mineral exploration field data acquisition system</h2>
 <p> The data acquisition system GDataSystems involves a central Postgis database that stores all the exploration data. The database is fed using the apps (GDS-Soil, GDS-StreamSed, GDS-Auger) developed for Android 11 or superior. RC-DDH Drilling data and geological mapping/sampling in final tests.</p>
